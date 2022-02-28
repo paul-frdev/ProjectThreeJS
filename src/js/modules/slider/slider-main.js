@@ -1,10 +1,8 @@
-export default class Slider {
-    constructor(page, btns, teacher) {
-        this.page = document.querySelector(page);
-        this.slides = this.page.children;
-        this.btns = document.querySelectorAll(btns);
-        this.slideIndex = 1;
-        this.teacher = document.querySelector(teacher);
+import Slider from './slider';
+
+export default class MainSlider extends Slider {
+    constructor(btns) {
+        super(btns);
     }
 
     showSlides(n) {
@@ -38,19 +36,6 @@ export default class Slider {
 
         this.slides[this.slideIndex - 1].style.display = 'block';
     }
-
-    // showModule() {
-    //     this.teacher.style.display = 'none';
-    //     this.slides.forEach(slide => {
-    //         if (slide.classList.contains('modules')) {
-    //             setTimeout(() => {
-    //                 this.teacher.style.display = 'block'
-    //             }, 6000);
-    //         } else {
-    //             this.teacher.style.display = 'none'
-    //         }
-    //     })
-    // }
 
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
